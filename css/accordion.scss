@@ -1,7 +1,12 @@
 @import './_placeholders.scss';
 
+// TODO: mixins, media-query, grid
+
 $default-left-margin  : 25px;
 $default-right-margin : 25px;
+
+$accordion-item-tall-height : 70px;
+$accordion-item-small-height: 50px;
 
 .main-title {
     @extend %accordion-base;
@@ -17,41 +22,53 @@ $default-right-margin : 25px;
 .accordion-item {
     @extend %accordion-base;
     align-items: center;
-    height: 70px;
+    transition: height 0.2s;
     .accordion-item-box {
         margin-left: $default-left-margin;
         width: 100%;
         .accordion-title {
             font: 600 14px arial;
             color: #0465ac;
+            margin-top: 13.8px;
         }
         .accordion-subtitle {
             font: 600 12px arial;
             color: #999;
-            margin-top: 12px; // redundant if title's bot margin is defined
-        }
-        .accordion-content-hidden {
-            display: none;
+            margin-top: 12px;
+            margin-bottom: 13.8px;
         }
         .accordion-content {
-            display: block;
+            font: 13px #333;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            height: 100%;
         }
     }
     .accordion-button {
-        margin-left: $default-left-margin;
-        margin-right: $default-right-margin;
-        color: #0465ac;
-        i {
-            vertical-align: middle;
+        @extend %accordion-button;
+        i:before {
+            content: 'ic_keyboard_arrow_down';
+        }
+        i.open:before {
+            content: 'ic_keyboard_arrow_up';
         }
     }
 }
 
 .accordion-item-tall {
-    height: 70px;
+    height: $accordion-item-tall-height;
 }
 .accordion-item-small {
-    height: 50px;
+    height: $accordion-item-small-height;
 }
 
+.active {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 200px;
+    transition: height 0.2s;
+}
 
+.hidden {
+    display: none;
+}

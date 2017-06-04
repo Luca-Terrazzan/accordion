@@ -6,6 +6,16 @@
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
+.accordion-item .accordion-button {
+  margin-left: 25px;
+  margin-right: 25px;
+  color: #0465ac;
+}
+
+.accordion-item .accordion-button i {
+  vertical-align: middle;
+}
+
 .main-title {
   height: 60px;
 }
@@ -19,7 +29,7 @@
 
 .accordion-item {
   align-items: center;
-  height: 70px;
+  transition: height 0.2s;
 }
 
 .accordion-item .accordion-item-box {
@@ -30,30 +40,29 @@
 .accordion-item .accordion-item-box .accordion-title {
   font: 600 14px arial;
   color: #0465ac;
+  margin-top: 13.8px;
 }
 
 .accordion-item .accordion-item-box .accordion-subtitle {
   font: 600 12px arial;
   color: #999;
   margin-top: 12px;
-}
-
-.accordion-item .accordion-item-box .accordion-content-hidden {
-  display: none;
+  margin-bottom: 13.8px;
 }
 
 .accordion-item .accordion-item-box .accordion-content {
-  display: block;
+  font: 13px #333;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 100%;
 }
 
-.accordion-item .accordion-button {
-  margin-left: 25px;
-  margin-right: 25px;
-  color: #0465ac;
+.accordion-item .accordion-button i:before {
+  content: 'ic_keyboard_arrow_down';
 }
 
-.accordion-item .accordion-button i {
-  vertical-align: middle;
+.accordion-item .accordion-button i.open:before {
+  content: 'ic_keyboard_arrow_up';
 }
 
 .accordion-item-tall {
@@ -62,4 +71,15 @@
 
 .accordion-item-small {
   height: 50px;
+}
+
+.active {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 200px;
+  transition: height 0.2s;
+}
+
+.hidden {
+  display: none;
 }

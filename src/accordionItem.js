@@ -1,10 +1,12 @@
 class AccordionItem {
     constructor(params) {
-        this.main     = this.createMainElement();
-        var box       = this.createMainBox();
-        var title     = this.buildElement(params['title'], 'accordion-title');
+        var content   = this.buildElement(params['content'], 'accordion-content');
         var subtitle  = this.buildElement(params['subtitle'], 'accordion-subtitle');
-        var content   = this.buildElement(params['content'], 'accordion-content-hidden');
+        var title     = this.buildElement(params['title'], 'accordion-title');
+        var box       = this.createMainBox();
+        var button   = this.createButton()
+        this.main     = this.createMainElement(content, button);
+        content.classList.add('hidden');
 
         this.main.appendChild(box);
         box.appendChild(title);
@@ -15,16 +17,22 @@ class AccordionItem {
             this.main.classList.add('accordion-item-small');
         }
         box.appendChild(content);
-        this.main.appendChild(this.createButton());
+        this.main.appendChild(button);
     }
 
     getItem() {
         return this.main;
     }
 
-    createMainElement() {
+    createMainElement(content, button) {
         var main = document.createElement('div');
         main.classList.add('accordion-item');
+        main.classList.add('inactive');
+        main.onclick = function(){
+            this.classList.toggle('active');
+            content.classList.toggle('hidden');
+            button.childNodes[0].classList.toggle('open');
+        }
         return main;
     }
     createMainBox() {
@@ -35,10 +43,8 @@ class AccordionItem {
     createButton() {
         var button   = document.createElement('div');
         var icon     = document.createElement('i');
-        var iconText = document.createTextNode('ic_keyboard_arrow_down');
         icon.classList.add('material-icons');
         icon.classList.add('md-26');
-        icon.appendChild(iconText);
         button.classList.add('accordion-button');
         button.appendChild(icon);
         return button;
@@ -46,7 +52,8 @@ class AccordionItem {
     buildElement(text, className) {
         if (!text) return null;
         parent = document.createElement('div');
-        parent.appendChild(document.createTextNode(text));
+        // parent.appendChild(document.createTextNode(text));
+        parent.innerHTML = text;
         parent.classList.add(className);
         return parent;
     }
