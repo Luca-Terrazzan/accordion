@@ -1,3 +1,9 @@
+/**
+ * Main accordion's scss
+ *
+ * @author Luca Terrazan <luca.terraz@gmail.com>
+ */
+
 @import './_placeholders.scss';
 
 // TODO: mixins, media-query, grid
@@ -22,10 +28,10 @@ $accordion-item-small-height: 50px;
 .accordion-item {
     @extend %accordion-base;
     align-items: center;
-    transition: height 0.2s;
     .accordion-item-box {
         margin-left: $default-left-margin;
         width: 100%;
+        height: 100%;
         .accordion-title {
             font: 600 14px arial;
             color: #0465ac;
@@ -60,13 +66,15 @@ $accordion-item-small-height: 50px;
 }
 .accordion-item-small {
     height: $accordion-item-small-height;
+    // margin-top: 100px;
 }
 
 .active {
     margin-top: 30px;
     margin-bottom: 30px;
-    height: 200px;
-    transition: height 0.2s;
+    height: auto;
+    max-height: 500px;
+    transition: max-height 0.2s;
 }
 
 .hidden {
