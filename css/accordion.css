@@ -3,6 +3,8 @@
   display: flex;
   height: 60px;
   box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .main-title .main-title-content {
@@ -16,8 +18,10 @@
   border: 1px solid #e4e6e5;
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 70px;
   box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .accordion-item .accordion-item-box {
@@ -26,16 +30,32 @@
 }
 
 .accordion-item .accordion-item-box .accordion-title {
-  font: 600 18px arial;
+  font: 600 14px arial;
   color: #0465ac;
+  margin-bottom: 12px;
 }
 
 .accordion-item .accordion-item-box .accordion-subtitle {
   font: 600 12px arial;
   color: #999;
+  margin-top: 12px;
 }
 
-.accordion-item .accordion-item-box .accordion-button {
-  padding-left: 25px;
-  padding-right: 25px;
+.accordion-item .accordion-item-box .accordion-content-hidden {
+  display: none;
+}
+
+.accordion-item .accordion-item-box .accordion-content {
+  display: block;
+}
+
+.accordion-item .accordion-button {
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 26px;
+  color: #0465ac;
+}
+
+.accordion-item .accordion-button i {
+  vertical-align: middle;
 }

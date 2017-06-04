@@ -1,13 +1,15 @@
 class AccordionItem {
     constructor(params) {
-        this.main  = this.createMainElement();
-        var box   = this.createMainBox();
-        var title = this.buildElement(params['title'], 'accordion-title');
+        this.main     = this.createMainElement();
+        var box       = this.createMainBox();
+        var title     = this.buildElement(params['title'], 'accordion-title');
         var subtitle  = this.buildElement(params['subtitle'], 'accordion-subtitle');
+        var content   = this.buildElement(params['content'], 'accordion-content-hidden');
 
         this.main.appendChild(box);
         box.appendChild(title);
         box.appendChild(subtitle);
+        box.appendChild(content);
         this.main.appendChild(this.createButton());
     }
 
@@ -26,8 +28,14 @@ class AccordionItem {
         return box;
     }
     createButton() {
-        var button = document.createElement('div');
+        var button   = document.createElement('div');
+        var icon     = document.createElement('i');
+        var iconText = document.createTextNode('ic_keyboard_arrow_down');
+        icon.classList.add('material-icons');
+        icon.classList.add('md-24');
+        icon.appendChild(iconText);
         button.classList.add('accordion-button');
+        button.appendChild(icon);
         return button;
     }
     buildElement(text, className) {

@@ -1,17 +1,23 @@
 $border-color : #e4e6e5;
 $left-margin : 25px;
+// accordion item
 $main-title-font: 18px arial;
 $main-title-color:  #333;
-$title-font: 600 18px arial;
+$title-font: 600 14px arial;
 $title-color:  #0465ac;
 $desc-font: 600 12px arial;
 $desc-color: #999;
+// button
+$button-size: 26px;
+$button-color: #0465ac;
 
 .main-title {
     border: 1px solid $border-color;
     display: flex;
     height: 60px;
     box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
     .main-title-content {
         margin: auto;
         margin-left: $left-margin;
@@ -24,22 +30,37 @@ $desc-color: #999;
     border: 1px solid $border-color;
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 70px;
     box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
     .accordion-item-box {
-        margin-left: 25px;
+        margin-left: $left-margin;
         width: 100%;
         .accordion-title {
             font: $title-font;
             color: $title-color;
+            margin-bottom: 12px;
         }
         .accordion-subtitle {
             font: $desc-font;
             color: $desc-color;
+            margin-top: 12px; // redundant if title's bot margin is defined
         }
-        .accordion-button {
-            padding-left: 25px;
-            padding-right: 25px;
+        .accordion-content-hidden {
+            display: none;
+        }
+        .accordion-content {
+            display: block;
+        }
+    }
+    .accordion-button {
+        margin-left: 25px;
+        margin-right: 25px;
+        font-size: $button-size;
+        color: $button-color;
+        i {
+            vertical-align: middle;
         }
     }
 }
