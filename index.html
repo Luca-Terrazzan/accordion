@@ -6,14 +6,33 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="./css/accordion.css">
         <link rel="stylesheet" href="./css/styles.css">
+        <script src="./src/accordion.js"></script>
+        <script src="./src/accordionItem.js"></script>
     </head>
 
     <body>
         <h1>Accordion demo page <i class="material-icons md-36">ic_keyboard_arrow_down</i></h1>
         <div id="my-accordion"></div>
 
-        <script>
-            // TODO:
+        <script type="text/javascript">
+            var options = {
+                container: 'my-accordion',
+                mainTitle: 'Main accordion title',
+                panels: [
+                    {
+                        title: 'My profile',
+                        subtitle: 'Update your profile information',
+                        content: '<p>HTML content for this panel</p>'
+                    },
+                    {
+                        title: 'Change password',
+                        subtitle: 'Change your login password',
+                        content: '<p>HTML content for this panel</p>'
+                    }
+                    // OTHERS...
+                ]
+            };
+            var accordion = new Accordion(options);
         </script>
 
     </body>

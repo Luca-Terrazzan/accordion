@@ -1,4 +1,47 @@
-div
-{
-    color: red;
+$border-color : #e4e6e5;
+$left-margin : 25px;
+$main-title-font: 18px arial;
+$main-title-color:  #333;
+$title-font: 600 18px arial;
+$title-color:  #0465ac;
+$desc-font: 600 12px arial;
+$desc-color: #999;
+
+.main-title {
+    border: 1px solid $border-color;
+    display: flex;
+    height: 60px;
+    box-sizing: border-box;
+    .main-title-content {
+        margin: auto;
+        margin-left: $left-margin;
+        color: $main-title-color;
+        font: $main-title-font;
+    }
 }
+
+.accordion-item {
+    border: 1px solid $border-color;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    box-sizing: border-box;
+    .accordion-item-box {
+        margin-left: 25px;
+        width: 100%;
+        .accordion-title {
+            font: $title-font;
+            color: $title-color;
+        }
+        .accordion-subtitle {
+            font: $desc-font;
+            color: $desc-color;
+        }
+        .accordion-button {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+    }
+}
+
+
