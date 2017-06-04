@@ -1,50 +1,33 @@
-$border-color : #e4e6e5;
-$left-margin : 25px;
-// accordion item
-$main-title-font: 18px arial;
-$main-title-color:  #333;
-$title-font: 600 14px arial;
-$title-color:  #0465ac;
-$desc-font: 600 12px arial;
-$desc-color: #999;
-// button
-$button-size: 26px;
-$button-color: #0465ac;
+@import './_placeholders.scss';
+
+$default-left-margin  : 25px;
+$default-right-margin : 25px;
 
 .main-title {
-    border: 1px solid $border-color;
-    display: flex;
+    @extend %accordion-base;
     height: 60px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
     .main-title-content {
         margin: auto;
-        margin-left: $left-margin;
-        color: $main-title-color;
-        font: $main-title-font;
+        margin-left: $default-left-margin;
+        color: #333;
+        font: 18px arial;
     }
 }
 
 .accordion-item {
-    border: 1px solid $border-color;
-    display: flex;
+    @extend %accordion-base;
     align-items: center;
     height: 70px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
     .accordion-item-box {
-        margin-left: $left-margin;
+        margin-left: $default-left-margin;
         width: 100%;
         .accordion-title {
-            font: $title-font;
-            color: $title-color;
-            margin-bottom: 12px;
+            font: 600 14px arial;
+            color: #0465ac;
         }
         .accordion-subtitle {
-            font: $desc-font;
-            color: $desc-color;
+            font: 600 12px arial;
+            color: #999;
             margin-top: 12px; // redundant if title's bot margin is defined
         }
         .accordion-content-hidden {
@@ -55,14 +38,20 @@ $button-color: #0465ac;
         }
     }
     .accordion-button {
-        margin-left: 25px;
-        margin-right: 25px;
-        font-size: $button-size;
-        color: $button-color;
+        margin-left: $default-left-margin;
+        margin-right: $default-right-margin;
+        color: #0465ac;
         i {
             vertical-align: middle;
         }
     }
+}
+
+.accordion-item-tall {
+    height: 70px;
+}
+.accordion-item-small {
+    height: 50px;
 }
 
 

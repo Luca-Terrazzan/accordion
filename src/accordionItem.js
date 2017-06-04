@@ -8,7 +8,12 @@ class AccordionItem {
 
         this.main.appendChild(box);
         box.appendChild(title);
-        box.appendChild(subtitle);
+        subtitle && box.appendChild(subtitle);
+        if (subtitle) {
+            this.main.classList.add('accordion-item-tall');
+        } else {
+            this.main.classList.add('accordion-item-small');
+        }
         box.appendChild(content);
         this.main.appendChild(this.createButton());
     }
@@ -32,13 +37,14 @@ class AccordionItem {
         var icon     = document.createElement('i');
         var iconText = document.createTextNode('ic_keyboard_arrow_down');
         icon.classList.add('material-icons');
-        icon.classList.add('md-24');
+        icon.classList.add('md-26');
         icon.appendChild(iconText);
         button.classList.add('accordion-button');
         button.appendChild(icon);
         return button;
     }
     buildElement(text, className) {
+        if (!text) return null;
         parent = document.createElement('div');
         parent.appendChild(document.createTextNode(text));
         parent.classList.add(className);
