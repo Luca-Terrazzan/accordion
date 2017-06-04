@@ -7,6 +7,6 @@
 # VSCode metadata
 .vscode
 
-# PHPunit logs
-log
+# ignore .css
+*.css
 
